@@ -1,28 +1,54 @@
-== README
+TwitterOAuthTemplate
+======================
+twitterアカウントでログインするrailsアプリのテンプレートです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+仕様
+------
+*Ruby2.0
+*Ruby on Rails4.0
+*MySQL5.0
+*unicorn
 
-Things you may want to cover:
+Twitter認証
+*omniauth
 
-* Ruby version
+Twitterのアイコンを保管
+*paperclip
+*Amazon S3
 
-* System dependencies
+UI
+*TwitterBootstrap
 
-* Configuration
+メッセージ表示
+*jquery.toastmessage.js
 
-* Database creation
+準備
+------
+*imageMagickインストール
+*TwitterDevelopersにアプリを登録
+*AWSアカウントを作成し、S3バケットを作成
+*大きいロゴ画像（90*450）と小さいロゴ画像（30x150）を作成
 
-* Database initialization
+使い方
+------
+以下の環境変数を設定してください。
 
-* How to run the test suite
+*RAILS_ROOT=railsのroot
 
-* Services (job queues, cache servers, search engines, etc.)
+*MYSQL_DB=db名
+*MYSQL_PASSWORD=dbパスワード
+*MYSQL_NAME=dbユーザ名
 
-* Deployment instructions
+*CONSUMER_KEY=Twitterのconsumer key
+*CONSUMER_SECRET=Twitterのconsumer secret
 
-* ...
+*ACCESS_KEY_ID=AWSのアクセスキーID
+*SECRET_ACCESS_KEY=AWSのシークレットアクセスキー
+
+*BUCKET_NAME=S3のバケット名（本番）
+*BUCKET_NAME_DEV=S3のバケット名（開発）
+*BUCKET_NAME_TEST=S3のバケット名（テスト）
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
