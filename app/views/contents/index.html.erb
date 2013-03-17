@@ -1,0 +1,31 @@
+<% if current_user %>
+
+ Your App Contents
+
+<% else %>
+
+  <div class="hero-unit">
+    <%= image_tag("logo-large.png") %>
+    <p class="login_comment">Your App Comment</p>
+    <p class="weak login_button" >
+      <%= link_to image_tag('sign-in-with-twitter-gray.png'),"/auth/twitter" %>　Twitterアカウントを使ってログインします。
+    </p>
+  </div>
+
+<% end %>
+
+<% unless flash[:notice].blank? %>
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $().toastmessage('showNoticeToast', "<%= flash[:notice] %>");
+    });
+  </script>
+<% end %>
+
+<% unless flash[:alert].blank? %>
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $().toastmessage('showErrorToast', "<%= flash[:alert] %>");
+    });
+  </script>
+<% end %>

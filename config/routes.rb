@@ -1,49 +1,22 @@
 Chatapp::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # root
+  get "contents/index"
+  root :to => 'contents#index'
 
-  # You can have the root of your site routed with "root"
-  # root to: 'welcome#index'
+  resources :contents
+  resources :sessions
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # OmniAuth
+  get "/auth/:provider/callback" => "sessions#create"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # ログアウト
+  get "/logout" => "sessions#destroy", :as => :logout
+  # 退会
+  get "/remove" => "users#destroy", :as => :remove
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  # 利用規約
+  get "/rule" => "contents#rule", :as => :rule
+  # ヘルプ
+  get "/help" => "contents#help", :as => :help
+  
 end

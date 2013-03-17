@@ -4,6 +4,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0.beta1'
 
 gem 'mysql2'
+gem 'pg'
+
+gem 'aws-s3'
+gem 'aws-sdk'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +23,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+
+gem "paperclip", "~> 3.0"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
